@@ -1,0 +1,2 @@
+batch,variante,n_features,n_test,n_conocidas,n_desconocidas,WF1,MF1,accuracy,auc_novelty_99
+4,Calibrated E2-GP (150 trees),304,32926,32800,126,0.7731096325699595,0.599428827408893,0.7782926829268293,0.668225174216028

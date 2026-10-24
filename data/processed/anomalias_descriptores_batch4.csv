@@ -1,0 +1,6 @@
+descriptor,ROC_AUC,P@50,P@126,P@300
+novedad_1-conf,0.6682,0.0,0.0,0.0067
+FUSION,0.5969,0.0,0.0079,0.0067
+IsolationForest,0.5703,0.02,0.0079,0.0033
+residuos_GP,0.5507,0.02,0.0159,0.02
+cambios_mag,0.4323,0.0,0.0,0.0

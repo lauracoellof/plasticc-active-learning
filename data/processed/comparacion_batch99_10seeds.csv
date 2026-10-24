@@ -1,0 +1,7 @@
+sistema,MF1,MF1_std,descub,descub_std
+Triage by confidence,0.633,0.015,12.5,2.718
+random (baseline),0.626,0.005,7.0,2.108
+Two channels (frac_desc=0.0),0.642,0.017,25.8,1.135
+Two channels (frac_desc=0.3),0.65,0.015,37.4,2.171
+Two channels (frac_desc=0.6),0.651,0.014,38.0,2.867
+Two channels (frac_desc=1.0),0.628,0.006,51.8,3.676

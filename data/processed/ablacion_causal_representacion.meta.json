@@ -1,0 +1,32 @@
+{
+  "objetivo": "efecto incremental de GP1D, transformaciones derivadas y GP2D",
+  "n_objetos_comunes": 5820,
+  "semillas_particion": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "test_size": 0.2,
+  "clasificador": {
+    "tipo": "RandomForestClassifier calibrado por Platt",
+    "n_estimators": 150,
+    "min_samples_leaf": 3,
+    "class_weight": "balanced",
+    "calibracion": "sigmoid",
+    "cv_calibracion": 3,
+    "random_state": 42
+  },
+  "n_boot": 20000,
+  "entradas_sha256": {
+    "features_estadisticas.csv": "c23933f0d06fb6c9b869a74f64fc3358a92ba4094f0061fe2d9cce135fa8e4fa",
+    "features_gp.csv": "cecd6c9697ed0024f18d6abbb494427d73abbab9c593b0560b8d5d7e6c0918ce",
+    "features_gp2d.csv": "687f4a46c88fe70d2acbdebfbb30111a0257dc2f7c62a40d5e9b50ccc99dd4b1"
+  }
+}

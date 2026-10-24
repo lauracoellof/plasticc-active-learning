@@ -1,0 +1,6 @@
+batch,régimen,anom,IsolationForest,residuos_GP,novedad_1-conf,cambios_mag
+1,DDF,136,0.518,0.58,0.596,0.41
+4,WFD,126,0.57,0.551,0.668,0.432
+5,WFD,152,0.561,0.563,0.703,0.417
+6,WFD,144,0.496,0.533,0.669,0.374
+media,,,0.536,0.557,0.659,0.408

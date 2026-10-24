@@ -1,0 +1,4 @@
+variante,WF1,MF1,accuracy,notas
+E2-GP · stats+GP1D+GP2D [304f],0.805,0.8067,0.8058,gp1gp2
+RF + stats + GP1D [251f],0.7453,0.6886,0.7466,gp1
+RF baseline [91f],0.7559,0.6697,0.7749,baseline

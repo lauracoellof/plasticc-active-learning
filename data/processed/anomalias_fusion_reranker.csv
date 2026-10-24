@@ -1,0 +1,5 @@
+método,ROC_AUC,P@100,P@300,P@N_anom
+OOF reranker (learned weights),0.7335,0.09,0.0567,0.0309
+Heuristic fusion (fixed manual weights),0.7116,0.0,0.01,0.0128
+novelty only (best single descriptor),0.6806,0.02,0.0133,0.0067
+Naive fusion (equal weights),0.5728,0.0,0.0,0.0054

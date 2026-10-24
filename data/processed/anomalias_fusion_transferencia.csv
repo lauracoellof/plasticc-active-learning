@@ -1,0 +1,5 @@
+batch,régimen,anom,ROC within-CV,ROC pesos de b4
+1,DDF,136,0.636,0.604
+4,WFD,126,0.761,0.771
+5,WFD,152,0.786,0.787
+6,WFD,144,0.735,0.729

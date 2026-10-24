@@ -1,0 +1,29 @@
+{
+  "representation_version": "e2gp-2.0.0",
+  "scope": "Historical feature CSVs retain their schema and numeric definitions. Earlier source fingerprints are accepted only while every reviewed current extractor matches the hashes below. Documentation and formatting changes were checked against the previous non-docstring AST.",
+  "legacy_fingerprints": {
+    "estadisticas": "5676655ca902ca53403e6869b3bd3bf89f85209c706e9bd8583c2bfb784c45c9",
+    "gp1d": "27c6cc4ba247bcb46e9e18fbf209fd7d0a09bb6ee992fa00a766b8c9121ab545",
+    "gp2d": "d1e45f7ed9a2a829c3d63c2acd6dacc01438d8a30e6fd4e002aa372983b94aa3",
+    "e2gp": "9ea7973f28f265b35feb2225bd8ee7bac0010bfd8219244096ad9c55e5558271"
+  },
+  "reviewed_fingerprints": {
+    "estadisticas": [
+      "f1fe94ec2ff2cb29f588002795d33a4cefcf719aeee65d4fd1fc779791b8875b"
+    ],
+    "gp1d": [
+      "32bbcf6e2fd5146c0a99e8aad2ce7e264648475219a22a1a3ae7f223a8d0db60"
+    ],
+    "gp2d": [
+      "71ac605e663f287011d39763068a2830e38f22dff788be94cc2b078eb8998ad4"
+    ],
+    "e2gp": [
+      "fd53c445314190a9938e66214862e6937b7483d8858f46b2d97b9881ec1f3faa"
+    ]
+  },
+  "source_sha256": {
+    "statistics.py": "3585f24fd3a6b5fa4b1948af82c563596a97f030e88074c0be1ad2e4de7221aa",
+    "gp.py": "32055fd88579d85ef569c4df074d6600d8ab3a24aeacb8f1d47c99a295bf74f2",
+    "gp2d.py": "6f792526ba43ec11b6cbac38ed1837aa3780bb1d2048a5d88fb58b72cc65ade0"
+  }
+}

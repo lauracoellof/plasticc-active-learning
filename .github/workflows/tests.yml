@@ -1,0 +1,30 @@
+name: Scientific tests
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: conda-incubator/setup-miniconda@v4
+        with:
+          activate-environment: tfm2
+          environment-file: environment.yml
+      - name: Verify scientific environment
+        run: python scripts/check_environment.py --full
+      - name: Run synthetic scientific tests
+        run: python -m pytest -q
+      - name: Check model integrity and Python syntax
+        run: |
+          python scripts/verify_models.py
+          python -m compileall -q src scripts config.py
