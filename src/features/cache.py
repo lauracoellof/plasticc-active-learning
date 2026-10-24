@@ -38,8 +38,17 @@ def _file_sha256(file_path):
     return h.hexdigest()
 
 
+def _source_bytes(file_path):
+    """Read Python source with canonical LF endings, as Python and Git interpret it."""
+    return Path(file_path).read_bytes().replace(b"\r\n", b"\n")
+
+
+def _source_sha256(file_path):
+    return hashlib.sha256(_source_bytes(file_path)).hexdigest()
+
+
 def extractor_fingerprint(feature_family_name):
-    """Hash the representation version and the source files defining a feature family."""
+    """Hash extractor sources independently of Windows/Unix line-ending conventions."""
     try:
         display_names = _SOURCES[feature_family_name]
     except KeyError as exc:
@@ -48,7 +57,7 @@ def extractor_fingerprint(feature_family_name):
     h = hashlib.sha256(REPRESENTATION_VERSION.encode("utf-8"))
     for item_name in display_names:
         h.update(item_name.encode("utf-8"))
-        h.update((base / item_name).read_bytes())
+        h.update(_source_bytes(base / item_name))
     return h.hexdigest()
 
 
@@ -129,7 +138,7 @@ def validate_cache(ruta_csv, feature_family_name, *, verify_csv=False):
         bridge = json.loads(bridge_path.read_text(encoding="utf-8"))
         current_sources = bridge.get("source_sha256", {})
         if current_sources and all(
-            _file_sha256(Path(__file__).parent / name) == digest
+            _source_sha256(Path(__file__).parent / name) == digest
             for name, digest in current_sources.items()
         ):
             legacy = bridge.get("legacy_fingerprints", {}).get(feature_family_name)

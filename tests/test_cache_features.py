@@ -54,11 +54,43 @@ def test_historical_cache_requires_exact_reviewed_extractor_sources(tmp_path, mo
     manifest_path(path).write_text(json.dumps(metadata))
     assert len(load_cache(path, "estadisticas")) == 1
 
-    original_hash = cache._file_sha256
+    original_hash = cache._source_sha256
     monkeypatch.setattr(
         cache,
-        "_file_sha256",
+        "_source_sha256",
         lambda p: "modified-extractor" if Path(p).name == "statistics.py" else original_hash(p),
     )
     with pytest.raises(InvalidFeatureCache, match="extractor_sha256"):
+        load_cache(path, "estadisticas")
+
+
+def test_extractor_fingerprint_survives_git_line_ending_conversion(tmp_path, monkeypatch):
+    """Cloning the same source on Windows or Linux must not invalidate feature caches."""
+    from src.features import cache
+
+    source = tmp_path / "extractor.py"
+    monkeypatch.setitem(cache._SOURCES, "synthetic", (str(source),))
+    source.write_bytes(b"def extract(x):\n    return x + 1\n")
+    expected = cache.extractor_fingerprint("synthetic")
+    source.write_bytes(b"def extract(x):\r\n    return x + 1\r\n")
+    assert cache.extractor_fingerprint("synthetic") == expected
+    source.write_bytes(b"def extract(x):\r\n    return x + 2\r\n")
+    assert cache.extractor_fingerprint("synthetic") != expected
+
+
+def test_csv_integrity_remains_byte_exact(tmp_path):
+    """Source normalization must not relax the checksum of scientific data files."""
+    path = tmp_path / "features.csv"
+    write_cache(
+        pd.DataFrame({"object_id": [1], "mean_u": [2.0]}),
+        path,
+        "estadisticas",
+        producer_name="pytest",
+    )
+    before = path.read_bytes()
+    after = before.replace(b"\r\n", b"\n")
+    if after == before:
+        after = before.replace(b"\n", b"\r\n")
+    path.write_bytes(after)
+    with pytest.raises(InvalidFeatureCache, match="CSV hash"):
         load_cache(path, "estadisticas")

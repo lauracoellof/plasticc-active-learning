@@ -1,2 +1,18 @@
-# Auto detect text files and perform LF normalization
 * text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.sha256 text eol=lf
+*.ipynb text eol=lf
+
+# Scientific checksums describe exact artifact bytes, not normalized text.
+data/processed/*.csv -text
+data/processed/*.json -text
+data/processed/*.npz binary
+models/*.json -text
+*.joblib binary
+*.png binary
+*.pdf binary
+*.gz binary

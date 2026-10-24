@@ -22,8 +22,9 @@
     ]
   },
   "source_sha256": {
-    "statistics.py": "3585f24fd3a6b5fa4b1948af82c563596a97f030e88074c0be1ad2e4de7221aa",
-    "gp.py": "32055fd88579d85ef569c4df074d6600d8ab3a24aeacb8f1d47c99a295bf74f2",
-    "gp2d.py": "6f792526ba43ec11b6cbac38ed1837aa3780bb1d2048a5d88fb58b72cc65ade0"
-  }
+    "statistics.py": "c96e4505a921502df9e4427aaf5d7e29f785a9f454d70b08ebd9aea3c32eb2d2",
+    "gp.py": "f5f2a5a2eea7d5b18944552bb85aa89446dace425497c134dd84e7a0f5f1610c",
+    "gp2d.py": "5aa64c29ded5115f6cdeb3831a2c23ea1cc620ba4062a8c844ed7869016c7063"
+  },
+  "source_line_endings": "LF-normalized Python source; scientific CSV checksums remain byte-exact."
 }
